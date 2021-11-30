@@ -1,4 +1,4 @@
-interface animal {
+interface Animal {
     name: string;
     stomach: number;
     words: string[];
@@ -6,14 +6,14 @@ interface animal {
     satisfied: number;
     angry: number;
 
-    abstract checkCurrentStatus;
-    abstract feed;
-    abstract teachWords;
-    abstract pet;
-    abstract teachSongs;
-}
+    checkCurrentStatus(): void;
+    feed(): void;
+    teachWords(words: string): void;
+    pet(): void;
+    teachSongs(song: string): void;
+};
 
-class parrot implements animal {
+class Parrot implements Animal {
     constructor(name: string) {
         this.name = name;
         this.stomach = 0;
@@ -30,27 +30,28 @@ class parrot implements animal {
     satisfied: number;
     angry: number;
 
-    function checkCurrentStatus (): void {
+    checkCurrentStatus(): void {
         console.log(this.name, this.stomach, this.words, this.songs, this.satisfied, this.angry);
     };
 
-    function feed (): void {
+    feed(): void {
         this.stomach = this.stomach + 1;
     };
 
-    function teachWords (words: string): void {
+    teachWords(words: string): void {
         this.words.push(words);
-        console.log(`The latest word ${this.name} learned is ` +  words[words.length - 1]);
+        console.log(`The latest word ${this.name} learned is ` +  this.words[this.words.length - 1]);
     };
 
-    function pet (): void {
+    pet(): void {
         this.satisfied = this.satisfied + 1;
     };
 
-    function teachSongs(songs: string[]): void {
+    teachSongs(songs: string): void {
         this.songs.push(songs);
         console.log(`${this.name} is singing ` + this.songs);
     };
 };
 
-parrot.teachWords("Hello World!");
+let louis: Parrot = new Parrot("Kim Louis");
+louis.teachWords("Hello World!");
