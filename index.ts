@@ -36,7 +36,7 @@ class Parrot implements Animal {
         if (this.satisfied > 4 && this.satisfied > this.angry) {
             console.log(`${this.name} is satisfied as much as ${this.satisfied}. Happy End!\n`);
         } else if (this.angry > 4 && this.satisfied < this.angry) {
-            console.log(`${this.name} is angry as much as ${this.angry}. Bed End!\n`);
+            console.log(`${this.name} is angry as much as ${this.angry}. Bad End!\n`);
         } else {
             console.log(`${this.name} is satisfied as much as ${this.satisfied}, and angry as much as ${this.angry}.\n`);
         };
