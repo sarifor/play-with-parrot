@@ -51,7 +51,28 @@ class Parrot implements Animal {
         this.songs.push(songs);
         console.log(`${this.name} is singing ` + this.songs);
     };
+
+    static whoIsHappier(parrot1: Parrot, parrot2: Parrot): string {
+        let result: string = "";
+
+        if(parrot1.satisfied > parrot2.satisfied) {
+            result = `${parrot1.name} is happier than ${parrot2.name}!`;
+        } else if (parrot1.satisfied < parrot2.satisfied) {
+            result = `${parrot2.name} is happier than ${parrot1.name}!`;          
+        } else if (parrot1.satisfied === parrot2.satisfied) {
+            result = `${parrot1.name} and ${parrot2.name} are at the same level of happiness!`;
+        } else {
+            result = "It is difficult to find who is happier";
+        };
+
+        return result;
+    }
 };
 
-const louis: Parrot = new Parrot("Kim Louis");
+const louis: Parrot = new Parrot("Louis");
+const romi: Parrot = new Parrot("Romi");
+
 louis.teachWords("Hello World!");
+
+let result: string = Parrot.whoIsHappier(louis, romi);
+console.log(result);
