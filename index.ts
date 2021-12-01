@@ -53,5 +53,5 @@ class Parrot implements Animal {
     };
 };
 
-let louis: Parrot = new Parrot("Kim Louis");
+const louis: Parrot = new Parrot("Kim Louis");
 louis.teachWords("Hello World!");
