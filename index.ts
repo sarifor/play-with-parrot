@@ -14,6 +14,13 @@ interface Animal {
 };
 
 class Parrot implements Animal {
+    public name: string;
+    public stomach: number;
+    public words: string[];
+    public songs: string[];
+    public satisfied: number;
+    public angry: number;
+
     constructor(name: string) {
         this.name = name;
         this.stomach = 0;
@@ -22,13 +29,6 @@ class Parrot implements Animal {
         this.satisfied = 0;
         this.angry = 0;
     }
-
-    name: string;
-    stomach: number;
-    words: string[];
-    songs: string[];
-    satisfied: number;
-    angry: number;
 
     checkCurrentStatus(): void {
         console.log(this.name, this.stomach, this.words, this.songs, this.satisfied, this.angry);
